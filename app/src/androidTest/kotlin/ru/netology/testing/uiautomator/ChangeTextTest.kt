@@ -26,7 +26,6 @@ class ChangeTextTest {
     private val textToSet = "Netology"
     private val emptyTextToSet = ""
     private val spaceTextToSet = "   "
-    private val defaultText = "Привет, UiAutomator!"
 
 //    @Test
 //    fun testInternetSettings() {
@@ -118,6 +117,7 @@ class ChangeTextTest {
         val packageName = MODEL_PACKAGE
         waitForPackage(packageName)
 
+        val defaultText = device.findObject(By.res(packageName, "textToBeChanged")).text
         device.findObject(By.res(packageName, "userInput")).text = emptyTextToSet
         device.findObject(By.res(packageName, "buttonChange")).click()
 
@@ -130,6 +130,7 @@ class ChangeTextTest {
         val packageName = MODEL_PACKAGE
         waitForPackage(packageName)
 
+        val defaultText = device.findObject(By.res(packageName, "textToBeChanged")).text
         device.findObject(By.res(packageName, "userInput")).text = spaceTextToSet
         device.findObject(By.res(packageName, "buttonChange")).click()
 
